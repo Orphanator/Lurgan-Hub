@@ -1,0 +1,165 @@
+local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
+local Window = OrionLib:MakeWindow({Name = "Lurgan Hub", HidePremium = false, Introtext = "The fog is coming", SaveConfig = true, ConfigFolder = "LurganTest"})
+
+-- Valules
+
+-- Functions
+function IY()
+    loadstring(game:HttpGet('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'))()
+end
+
+function CMDX()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/CMD-X/CMD-X/master/Source", true))()
+end
+
+function DHUB()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/dazaims/DA_Hub/main/DA_Hub", true))()
+end
+
+function Criminality()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/JackHiggly/RobloxThings/main/FemWare0", true))()
+end
+
+function Counterblox()
+    loadstring(game:HttpGet('https://raw.githubusercontent.com/NooVster/404/main/Source'))()
+end
+
+function PLSDonate()
+    loadstring(game:HttpGet('https://tubhub.cloud/scripts/prettyplease.lua', false))()
+end
+
+function DaHood()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/spacexrandom/Lua/main/DaHood"))()
+end
+
+function AO()
+    getgenv().toggle = true
+    getgenv().whitelist = {"Elite Armor Chest","Elite Sailor Chest","Great Sailor Chest", "Golden Chest","Silver Chest","Food Chest" }; -- these are the chest that will be grabbed:)
+    getgenv().speed = 100  --the higher the number the faster you go,increasing may lead too bans!
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/Disttt/-Arcane-Odyssey/main/Autochest.lua"))()
+end
+
+function PL()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/Denverrz/scripts/master/PRISONWARE_v1.3.txt"))()
+end
+
+function PS()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/Muhammad6196/Project-WD/main/Mainstring.lua"))()
+end
+
+function JB()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/dazaims/DA_Hub/main/DA_Hub", true))()
+end
+
+function Open()
+    
+end
+
+-- Tabs
+local ScriptTab = Window:MakeTab({
+	Name = "Command GUIs",
+	Icon = "rbxassetid://12220954205",
+	PremiumOnly = false
+})
+
+local GamesTab = Window:MakeTab({
+	Name = "Games",
+	Icon = "rbxassetid://12220954205",
+	PremiumOnly = false
+})
+
+local UtilityTab = Window:MakeTab({
+	Name = "Utility",
+	Icon = "rbxassetid://12220954205",
+	PremiumOnly = false
+})
+
+-- Button
+ScriptTab:AddButton({
+	Name = "Infinite Yield",
+	Callback = function()
+        IY()     		
+  	end    
+})
+
+ScriptTab:AddButton({
+	Name = "CMDX",
+	Callback = function()
+        CMDX()     		
+  	end    
+})
+
+ScriptTab:AddButton({
+	Name = "Da Hub (Get key -> Paste into browser)",
+	Callback = function()
+        DHUB()     		
+  	end    
+})
+
+GamesTab:AddButton({
+	Name = "Criminality",
+	Callback = function()
+        Criminality()     		
+  	end    
+})
+
+GamesTab:AddButton({
+	Name = "Counterblox",
+	Callback = function()
+        Counterblox()     		
+  	end    
+})
+
+GamesTab:AddButton({
+	Name = "PLS Donate",
+	Callback = function()
+        PLSDonate()     		
+  	end    
+})
+
+GamesTab:AddButton({
+	Name = "Da Hood",
+	Callback = function()
+        DaHood()     		
+  	end    
+})
+
+GamesTab:AddButton({
+	Name = "Arcane Odyssey Chest Autofarm",
+	Callback = function()
+        AO()     		
+  	end    
+})
+
+GamesTab:AddButton({
+	Name = "Prison Life",
+	Callback = function()
+        PL()     		
+  	end    
+})
+
+GamesTab:AddButton({
+	Name = "Pet Simulator",
+	Callback = function()
+        PS()     		
+  	end    
+})
+
+GamesTab:AddButton({
+	Name = "Jailbreak",
+	Callback = function()
+        JB()     		
+  	end    
+})
+
+UtilityTab:AddButton({
+	Name = "Open",
+	Callback = function()
+        Open()     		
+  	end    
+})
+
+OrionLib:Init()
+
+
+
