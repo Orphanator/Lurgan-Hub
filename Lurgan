@@ -112,6 +112,13 @@ function Apoc2()
 	loadstring(game:HttpGet("https://raw.githubusercontent.com/JackHiggly/FemWare/main/Apocalypse%20Rising%202"))()
 end
 
+function WalkingSpeed()
+local WS = 16
+game:GetService("Players").LocalPlayer.Character.Humanoid.WalkSpeed = WS
+end
+
+
+
 -- Tabs
 local ScriptTab = Window:MakeTab({
 	Name = "Hubs",
@@ -131,9 +138,8 @@ local UtilityTab = Window:MakeTab({
 	PremiumOnly = false
 })
 
-
-local Customise = Window:MakeTab({
-	Name = "Customise",
+local Humanoid = Window:MakeTab({
+	Name = "Player",
 	Icon = "rbxassetid://4483345998",
 	PremiumOnly = false
 })
@@ -200,6 +206,13 @@ GamesTab:AddButton({
 	Callback = function()
         AO()     		
   	end    
+})
+
+GamesTab:AddButton({
+	Name = "Apocolypse Rising 2",
+	Callback = function()
+		Apoc2()     		
+		end    
 })
 
 GamesTab:AddButton({
@@ -321,16 +334,64 @@ UtilityTab:AddButton({
   	end    
 })
 
-Customise:AddColorpicker({
-	Name = "Colorpicker",
-	Default = Color3.fromRGB(255, 0, 0),
-	Callback = function(Value)
-		print(Value)
-	end	  
-})
+Humanoid:AddSlider({
+	Name = "Speed",
+	Min = 0,
+	Max = 1000,
+	Default = 16,
+	Color = Color3.fromRGB(255,0,0),
+	Increment = 1,
+	ValueName = "Walkspeed",
+	Callback = function(e)
+		game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = e
+	end
+	})
+
+	Humanoid:AddSlider({
+		Name = "Jump",
+		Min = 0,
+		Max = 1000,
+		Default = 50,
+		Color = Color3.fromRGB(255,0,0),
+		Increment = 1,
+		ValueName = "JumpHeight",
+		Callback = function(e)
+			game.Players.LocalPlayer.Character.Humanoid.JumpPower = e
+		end
+		})
+
+	Humanoid:AddSlider({
+		Name = "Gravity",
+		Min = 0,
+		Max = 1000,
+		Default = 150,
+		Color = Color3.fromRGB(255,0,0),
+		Increment = 1,
+		ValueName = "Gravity",
+		Callback = function(e)
+			workspace.Gravity = e
+		end
+		})
+
+
+		getgenv().Config = Config or {
+			Noclip = false
+		}
+		
+		Humanoid:AddBind({
+			Name = "Noclip",
+			Default = Enum.KeyCode.E,
+			Hold = false,
+			Callback = function(state)
+				Config.Noclip = not Config.Noclip 
+				print(Config.Noclip)
+			end
+		})
+		
+
+
+	
+
+
 
 OrionLib:Init()
-
-
-
-
