@@ -56,8 +56,6 @@ function PF()
 end
 
 function BP()
-    getgenv().AutoFarm = true --enables / disables AutoFarm
-getgenv().ServerHop = false --enables / disables server hop, add to autoexec if you enable this.
 loadstring(game:HttpGet("https://raw.githubusercontent.com/MostafaXc00dy/MostafaXc00dy/main/Outlaws%20Hub/Breaking%20Point%20V7.lua"))()
 end
 
@@ -71,9 +69,20 @@ function TS()
 end
 
 function SS()
-	loadstring(game:HttpGet("https://pastebin.com/raw/We87LDxW", true))()
+	loadstring(game:HttpGet("https://raw.githubusercontent.com/Orphanator/Script/main/SimpleSpy", true))()
 end
 
+function LB()
+	loadstring(game:HttpGet("https://raw.githubusercontent.com/Orphanator/Script/main/LuckyBlocks", true))()
+end
+
+function SB()
+	loadstring(game:HttpGet("https://catware.vercel.app", true))()
+end
+
+function MM2()
+	loadstring(game:HttpGet("https://raw.githubusercontent.com/Doggo-cryto/EclipseMM2/master/Script", true))() 
+end
 
 -- Tabs
 local ScriptTab = Window:MakeTab({
@@ -200,6 +209,27 @@ GamesTab:AddButton({
   	end    
 })
 
+GamesTab:AddButton({
+	Name = "LuckyBlocks",
+	Callback = function()
+        LB()     		
+  	end    
+})
+
+GamesTab:AddButton({
+	Name = "SharkBite 2",
+	Callback = function()
+        SB()     		
+  	end    
+})
+
+GamesTab:AddButton({
+	Name = "Murder Mystery 2",
+	Callback = function()
+        MM2()     		
+  	end    
+})
+
 UtilityTab:AddButton({
 	Name = "TurtleSpy",
 	Callback = function()
@@ -213,6 +243,8 @@ UtilityTab:AddButton({
         SS()     		
   	end    
 })
+
+
 
 
 OrionLib:Init()
