@@ -51,8 +51,23 @@ function JB()
     loadstring(game:HttpGet("https://raw.githubusercontent.com/dazaims/DA_Hub/main/DA_Hub", true))()
 end
 
-function Open()
-    
+function PF()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/mopsfl/rbxmopshub/main/loader.lua", true))()
+end
+
+function BP()
+    getgenv().AutoFarm = true --enables / disables AutoFarm
+getgenv().ServerHop = false --enables / disables server hop, add to autoexec if you enable this.
+loadstring(game:HttpGet("https://raw.githubusercontent.com/MostafaXc00dy/MostafaXc00dy/main/Outlaws%20Hub/Breaking%20Point%20V7.lua"))()
+end
+
+function ND()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/2dgeneralspam1/scripts-and-stuff/master/scripts/LoadstringUjHI6RQpz2o8", true))()
+ 
+end
+
+function TS()
+	loadstring(game:HttpGet("https://raw.githubusercontent.com/MirayXS/scripts-4/main/TurtleSpy.lua", true))()
 end
 
 -- Tabs
@@ -152,14 +167,40 @@ GamesTab:AddButton({
   	end    
 })
 
-UtilityTab:AddButton({
-	Name = "Open",
+GamesTab:AddButton({
+	Name = "Phantom Forces",
 	Callback = function()
-        Open()     		
+        PF()     		
+  	end    
+})
+
+GamesTab:AddButton({
+	Name = "Breaking Point",
+	Callback = function()
+        BP()     		
+  	end    
+})
+
+GamesTab:AddButton({
+	Name = "Natural Disasters",
+	Callback = function()
+        ND()     		
+  	end    
+})
+
+GamesTab:AddButton({
+	Name = "",
+	Callback = function()
+        JB()     		
+  	end    
+})
+
+UtilityTab:AddButton({
+	Name = "TurtleSpy",
+	Callback = function()
+        TS()     		
   	end    
 })
 
 OrionLib:Init()
-
-
 
