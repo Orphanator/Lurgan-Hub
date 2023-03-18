@@ -84,6 +84,14 @@ function MM2()
 	loadstring(game:HttpGet("https://raw.githubusercontent.com/Doggo-cryto/EclipseMM2/master/Script", true))() 
 end
 
+function SG()
+	loadstring(game:HttpGet("https://raw.githubusercontent.com/qxkya/Kya-Ware/main/TheSurvivalGame.lua"))()
+end
+
+function Pil()
+	loadstring(game:HttpGet('https://raw.githubusercontent.com/XorV2/script/main/Pilgrammed'))()
+end
+
 -- Tabs
 local ScriptTab = Window:MakeTab({
 	Name = "Command GUIs",
@@ -227,6 +235,20 @@ GamesTab:AddButton({
 	Name = "Murder Mystery 2",
 	Callback = function()
         MM2()     		
+  	end    
+})
+
+GamesTab:AddButton({
+	Name = "Survival Game",
+	Callback = function()
+        SG()     		
+  	end    
+})
+
+GamesTab:AddButton({
+	Name = "Pilgrammed",
+	Callback = function()
+        Pil()     		
   	end    
 })
 
