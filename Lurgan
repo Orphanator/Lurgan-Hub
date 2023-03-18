@@ -70,6 +70,11 @@ function TS()
 	loadstring(game:HttpGet("https://raw.githubusercontent.com/MirayXS/scripts-4/main/TurtleSpy.lua", true))()
 end
 
+function SS()
+	loadstring(game:HttpGet("https://pastebin.com/raw/We87LDxW", true))()
+end
+
+
 -- Tabs
 local ScriptTab = Window:MakeTab({
 	Name = "Command GUIs",
@@ -202,5 +207,12 @@ UtilityTab:AddButton({
   	end    
 })
 
-OrionLib:Init()
+UtilityTab:AddButton({
+	Name = "SimpleSpy",
+	Callback = function()
+        SS()     		
+  	end    
+})
 
+
+OrionLib:Init()
