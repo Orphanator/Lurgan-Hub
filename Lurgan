@@ -104,6 +104,14 @@ function UH()
 	loadstring(game:HttpGet('https://raw.githubusercontent.com/Dvrknvss/UniversalFEScriptHub/main/Script'))()
 end
 
+function ArS()
+	loadstring(game:HttpGet("https://raw.githubusercontent.com/ccxmIcal/cracks/main/strikehub.lua"))()
+end
+
+function Apoc2()
+	loadstring(game:HttpGet("https://raw.githubusercontent.com/JackHiggly/FemWare/main/Apocalypse%20Rising%202"))()
+end
+
 -- Tabs
 local ScriptTab = Window:MakeTab({
 	Name = "Hubs",
@@ -285,6 +293,20 @@ GamesTab:AddButton({
   	end    
 })
 
+GamesTab:AddButton({
+	Name = "Arsenal",
+	Callback = function()
+        ArS()     		
+  	end    
+})
+
+GamesTab:AddButton({
+	Name = "Apocolypse Rising 2",
+	Callback = function()
+        Apoc2()     		
+  	end    
+})
+
 UtilityTab:AddButton({
 	Name = "TurtleSpy",
 	Callback = function()
@@ -307,10 +329,8 @@ Customise:AddColorpicker({
 	end	  
 })
 
-
-
-
-
-
-
 OrionLib:Init()
+
+
+
+
