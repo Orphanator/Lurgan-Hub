@@ -1,7 +1,7 @@
 local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
-local Window = OrionLib:MakeWindow({Name = "Lurgan Hub", HidePremium = false, Introtext = "The fog is coming", SaveConfig = true, ConfigFolder = "LurganTest"})
 
--- Valules
+local Window = OrionLib:MakeWindow({Name = "Lurgan Hub", HidePremium = false, IntroEnabled = false, Introtext = "The fog is coming", SaveConfig = true, ConfigFolder = "LurganTest"})
+
 
 -- Functions
 function IY()
@@ -92,22 +92,36 @@ function Pil()
 	loadstring(game:HttpGet('https://raw.githubusercontent.com/XorV2/script/main/Pilgrammed'))()
 end
 
+function StS()
+	loadstring(game:HttpGet('https://raw.githubusercontent.com/Cutsences/SteepSteps/main/SteepSteps.lua'))()
+end
+
+function BB()
+	loadstring(game:HttpGet("https://raw.githubusercontent.com/RegularVynixu/Vynixius/main/Build%20A%20Boat%20For%20Treasure/Script.lua"))()
+end
+
 -- Tabs
 local ScriptTab = Window:MakeTab({
 	Name = "Command GUIs",
-	Icon = "rbxassetid://12220954205",
+	Icon = "rbxassetid://4483345998",
 	PremiumOnly = false
 })
 
 local GamesTab = Window:MakeTab({
 	Name = "Games",
-	Icon = "rbxassetid://12220954205",
+	Icon = "rbxassetid://4483345998",
 	PremiumOnly = false
 })
 
 local UtilityTab = Window:MakeTab({
 	Name = "Utility",
-	Icon = "rbxassetid://12220954205",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+
+local Customise = Window:MakeTab({
+	Name = "Customise",
+	Icon = "rbxassetid://4483345998",
 	PremiumOnly = false
 })
 
@@ -211,9 +225,9 @@ GamesTab:AddButton({
 })
 
 GamesTab:AddButton({
-	Name = "",
+	Name = "Steep Steps",
 	Callback = function()
-        JB()     		
+        StS()     		
   	end    
 })
 
@@ -252,6 +266,13 @@ GamesTab:AddButton({
   	end    
 })
 
+GamesTab:AddButton({
+	Name = "Build A Boat",
+	Callback = function()
+        BB()     		
+  	end    
+})
+
 UtilityTab:AddButton({
 	Name = "TurtleSpy",
 	Callback = function()
@@ -265,6 +286,17 @@ UtilityTab:AddButton({
         SS()     		
   	end    
 })
+
+Customise:AddColorpicker({
+	Name = "Colorpicker",
+	Default = Color3.fromRGB(255, 0, 0),
+	Callback = function(Value)
+		print(Value)
+	end	  
+})
+
+
+
 
 
 
