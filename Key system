@@ -1,0 +1,64 @@
+local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
+local Player = game.Players.LocalPlayer
+local Window = OrionLib:MakeWindow({Name = "Lurgan Hub", HidePremium = false, IntroEnabled = false, Introtext = "The fog is coming", SaveConfig = true, ConfigFolder = "LurganTest"})
+
+OrionLib:MakeNotification({
+	Name = "Welcome to Lurgan Hub",
+	Content = "You are fenian: "..Player.Name..".",
+	Image = "rbxassetid://4483345998",
+	Time = 10
+})
+
+_G.Key = "NINH"
+_G.KeyInput = "string"
+
+function DHUB()
+    loadstring(game:HttpGet(('https://raw.githubusercontent.com/Orphanator/Lurgan-Hub/main/Lurgan')))()
+end
+
+function CorrectKey()
+OrionLib:MakeNotification({
+	Name = "Correct Key",
+	Content = "Up The RA" ,
+	Image = "rbxassetid://4483345998",
+	Time = 5
+})
+end
+
+function InCorrectKey()
+	OrionLib:MakeNotification({
+		Name = "Incorrect Key",
+		Content = "Go back to downyclowny" ,
+		Image = "rbxassetid://4483345998",
+		Time = 5
+	})
+	end
+
+local KeyTab = Window:MakeTab({
+	Name = "Key",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+
+
+KeyTab:AddTextbox({
+	Name = "Enter Key",
+	Default = "",
+	TextDisappear = true,
+	Callback = function(Value)
+		_G.KeyInput = Value
+	end	  
+})
+
+KeyTab:AddButton({
+	Name = "Check Key",
+	Callback = function()
+      		if _G.KeyInput == _G.Key then
+			DHUB()
+			CorrectKey()
+			else
+			InCorrectKey()
+			end
+  	end    
+})
+
