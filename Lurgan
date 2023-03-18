@@ -100,9 +100,13 @@ function BB()
 	loadstring(game:HttpGet("https://raw.githubusercontent.com/RegularVynixu/Vynixius/main/Build%20A%20Boat%20For%20Treasure/Script.lua"))()
 end
 
+function UH()
+	loadstring(game:HttpGet('https://raw.githubusercontent.com/Dvrknvss/UniversalFEScriptHub/main/Script'))()
+end
+
 -- Tabs
 local ScriptTab = Window:MakeTab({
-	Name = "Command GUIs",
+	Name = "Hubs",
 	Icon = "rbxassetid://4483345998",
 	PremiumOnly = false
 })
@@ -118,6 +122,7 @@ local UtilityTab = Window:MakeTab({
 	Icon = "rbxassetid://4483345998",
 	PremiumOnly = false
 })
+
 
 local Customise = Window:MakeTab({
 	Name = "Customise",
@@ -141,9 +146,16 @@ ScriptTab:AddButton({
 })
 
 ScriptTab:AddButton({
-	Name = "Da Hub (Get key -> Paste into browser)",
+	Name = "Da Hub",
 	Callback = function()
         DHUB()     		
+  	end    
+})
+
+ScriptTab:AddButton({
+	Name = "Unniversal Hub",
+	Callback = function()
+        UH()     		
   	end    
 })
 
