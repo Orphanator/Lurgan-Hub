@@ -9,7 +9,7 @@ OrionLib:MakeNotification({
 	Time = 10
 })
 
-_G.Key = "NINH"
+_G.Key = "NINH2"
 _G.KeyInput = "string"
 
 function DHUB()
