@@ -112,6 +112,10 @@ function Apoc2()
 	loadstring(game:HttpGet("https://raw.githubusercontent.com/JackHiggly/FemWare/main/Apocalypse%20Rising%202"))()
 end
 
+function WildW()
+	loadstring(game:HttpGet("https://raw.githubusercontent.com/KeoneGithub/KeoneGithub/main/WildWestLean"))()
+end
+
 function WalkingSpeed()
 local WS = 16
 game:GetService("Players").LocalPlayer.Character.Humanoid.WalkSpeed = WS
@@ -124,6 +128,10 @@ function NoclipNotify()
         Image = "rbxassetid://4483345998",
         Time = 5
     })
+end
+
+function DarkDexV4()
+	loadstring(game:HttpGet('https://gist.githubusercontent.com/DinosaurXxX/b757fe011e7e600c0873f967fe427dc2/raw/ee5324771f017073fc30e640323ac2a9b3bfc550/dark%2520dex%2520v4'))() 
 end
 
 
@@ -153,6 +161,9 @@ local Humanoid = Window:MakeTab({
 })
 
 -- Button
+
+ScriptTab:AddLabel("Note: Certain command GUIs may bug out the hub.")
+
 ScriptTab:AddButton({
 	Name = "Infinite Yield",
 	Callback = function()
@@ -180,6 +191,8 @@ ScriptTab:AddButton({
         UH()     		
   	end    
 })
+
+GamesTab:AddLabel("Note: These only work if you're in the correct game.")
 
 GamesTab:AddButton({
 	Name = "Criminality",
@@ -322,11 +335,13 @@ GamesTab:AddButton({
 })
 
 GamesTab:AddButton({
-	Name = "Apocolypse Rising 2",
+	Name = "Wild West",
 	Callback = function()
-        Apoc2()     		
+        WildW()     		
   	end    
 })
+
+UtilityTab:AddLabel("Note: These are used to create scripts.")
 
 UtilityTab:AddButton({
 	Name = "TurtleSpy",
@@ -341,6 +356,15 @@ UtilityTab:AddButton({
         SS()     		
   	end    
 })
+
+UtilityTab:AddButton({
+	Name = "Dark Dex v4",
+	Callback = function()
+        DarkDexV4()     		
+  	end    
+})
+
+Humanoid:AddLabel("Note: Some of these scripts are detectable!")
 
 Humanoid:AddSlider({
 	Name = "Speed",
@@ -426,17 +450,4 @@ RunService.Stepped:Connect(function()
     end
 end)
 		
-Humanoid:AddBind({
-    Name = "Platform Fly",
-    Default = Enum.KeyCode.x,
-    Hold = false,
-    Callback = function(Value)
-        print()
-    end
-})
-
-	
-
-
-
 OrionLib:Init()
