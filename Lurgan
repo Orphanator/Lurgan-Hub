@@ -117,6 +117,14 @@ local WS = 16
 game:GetService("Players").LocalPlayer.Character.Humanoid.WalkSpeed = WS
 end
 
+function NoclipNotify()
+    OrionLib:MakeNotification({
+        Name = "Noclip Toggled",
+        Content = "Keybind E was pressed",
+        Image = "rbxassetid://4483345998",
+        Time = 5
+    })
+end
 
 
 -- Tabs
@@ -374,21 +382,58 @@ Humanoid:AddSlider({
 		})
 
 
-		getgenv().Config = Config or {
-			Noclip = false
-		}
-		
-		Humanoid:AddBind({
-			Name = "Noclip",
-			Default = Enum.KeyCode.E,
-			Hold = false,
-			Callback = function(state)
-				Config.Noclip = not Config.Noclip 
-				print(Config.Noclip)
-			end
-		})
-		
+		local RunService = game:GetService("RunService")
+local Players = game:GetService("Players")
+local LocalPlayer = Players.LocalPlayer
 
+getgenv().Config = Config or {
+    Noclip = false
+}
+
+Humanoid:AddBind({
+    Name = "Noclip",
+    Default = Enum.KeyCode.E,
+    Hold = false,
+    Callback = function(state)
+        Config.Noclip = not Config.Noclip 
+        print(Config.Noclip)
+        NoclipNotify()
+    end
+})
+
+local old 
+old = hookmetamethod(game, "__newindex", newcclosure(function(self, Meme, Value)
+    if self == "HumanoidRootPart" or self == "Torso" and not checkcaller() then 
+        if Meme == "CFrame" and self:IsDescendantOf(LocalPlayer.Character) then 
+            return true
+        end
+    end
+
+    return old(self, Meme, Value)
+end))
+
+RunService.Stepped:Connect(function()
+    if Config.Noclip and LocalPlayer.Character then 
+        pcall(function()
+            LocalPlayer.Character.Head.CanCollide = false
+            LocalPlayer.Character.Torso.CanCollide = false
+        end)
+    else
+        pcall(function()
+            LocalPlayer.Character.Head.CanCollide = true
+            LocalPlayer.Character.Torso.CanCollide = true
+        end)
+    end
+end)
+		
+Humanoid:AddBind({
+    Name = "Platform Fly",
+    Default = Enum.KeyCode.x,
+    Hold = false,
+    Callback = function(Value)
+        print()
+    end
+})
 
 	
 
