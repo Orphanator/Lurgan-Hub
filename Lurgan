@@ -28,6 +28,11 @@ function PLSDonate()
     loadstring(game:HttpGet('https://tubhub.cloud/scripts/prettyplease.lua', false))()
 end
 
+function PhysGun()
+    loadstring(game:HttpGet('https://gist.githubusercontent.com/bart3876478326746387/285ede5179a8787b175f3c9c212986dc/raw/9acf48c510d00319aa98e30311c0e04a84adf537/PHYSICS%2520GUN%2520V2%2520(DRAG%2520KO%2520PEOPLE', false))()
+end
+
+
 function DaHood()
     loadstring(game:HttpGet("https://raw.githubusercontent.com/spacexrandom/Lua/main/DaHood"))()
 end
@@ -133,6 +138,7 @@ end
 function DarkDexV4()
 	loadstring(game:HttpGet('https://gist.githubusercontent.com/DinosaurXxX/b757fe011e7e600c0873f967fe427dc2/raw/ee5324771f017073fc30e640323ac2a9b3bfc550/dark%2520dex%2520v4'))() 
 end
+
 
 
 -- Tabs
@@ -364,6 +370,13 @@ UtilityTab:AddButton({
   	end    
 })
 
+UtilityTab:AddButton({
+	Name = "Physics Gun",
+	Callback = function()
+        PhysGun()     		
+  	end    
+})
+
 Humanoid:AddLabel("Note: Some of these scripts are detectable!")
 
 Humanoid:AddSlider({
@@ -436,6 +449,142 @@ old = hookmetamethod(game, "__newindex", newcclosure(function(self, Meme, Value)
     return old(self, Meme, Value)
 end))
 
+Humanoid:AddLabel("Note: Press PlatForm Fly once and press R to toggle.")
+
+Humanoid:AddButton({
+	Name = "Platform Fly",
+	Callback = function()
+        wait(0.001);
+script.Archivable = true;
+local scrSource = script:Clone();
+scrSource.Parent = nil;
+local player = game:FindService'Players'.LocalPlayer;
+local mouse = player:GetMouse();
+local playerTarget = player.Character;
+local partTarget = playerTarget.Torso;
+local allParts = {};
+local curTransparency = 0;
+local addValue = 0;
+local rotValueX = 0;
+local rotValueY = 0;
+local rotValueZ = 0;
+local rotAddX = 0;
+local rotAddY = 1;
+local rotAddZ = 0;
+local canCollide = true;
+local lastSpaceTick = 0;
+local Keys = {
+    ["LCtrl"] = 50;
+    ["LShift"] = 48;
+    ["R"] = "r";
+    ["Space"] = " "
+};
+local ascending = false;
+local descending = false;
+local brickColor = "Institutional white";
+for x = 1,5 do
+    for z = 1,5 do
+        local part = Instance.new("Part",playerTarget);
+        part.FormFactor = "Custom";
+        part.Name = ""..x.."x"..z;
+        part.Anchored = true;
+        part.CanCollide = canCollide;
+        part.Size = Vector3.new(2,2,2);
+        part.BrickColor = BrickColor.new(brickColor);
+        part.TopSurface = 'SmoothNoOutlines';
+        part.BottomSurface = 'SmoothNoOutlines';
+        part.LeftSurface = 'SmoothNoOutlines';
+        part.RightSurface = 'SmoothNoOutlines';
+        part.FrontSurface = 'SmoothNoOutlines';
+        part.BackSurface = 'SmoothNoOutlines';
+        table.insert(allParts,{["Part"] = part,["X"] = x*2,["Y"] = 0, ["Z"] = z*2});
+    end
+end
+mouse.KeyDown:connect(function(key)
+    if key:byte() == Keys["LCtrl"] then
+        descending = true
+    elseif key:byte() == Keys["LShift"] then
+        ascending = true
+    end
+end)
+mouse.KeyUp:connect(function(key)
+    if key:byte() == Keys["LCtrl"] then
+        descending = false
+    elseif key:byte() == Keys["LShift"] then
+        ascending = false
+    elseif key == Keys["R"] then
+        canCollide = not canCollide
+    elseif key == Keys["Space"] then
+        if tick() - lastSpaceTick < 0.3 then
+            canCollide = not canCollide
+        else
+            lastSpaceTick = tick()
+        end
+    end
+end)
+function ResetRotation()
+    rotAddX = 0;
+    rotAddY = 0;
+    rotAddZ = 0;
+    rotValueX = 0;
+    rotValueY = 0;
+    rotValueZ = 0;
+end
+player.Chatted:connect(function(msg)
+    if msg:sub(1,4) == "clr/" then
+        local newClr = msg:sub(5);
+        brickColor = newClr;
+    elseif msg:sub(1,4) == "rax/" then
+        local newRot = tonumber(msg:sub(5)) or 0;
+        rotAddX = newRot;
+    elseif msg:sub(1,4) == "ray/" then
+        local newRot = tonumber(msg:sub(5)) or 0;
+        rotAddY = newRot;
+    elseif msg:sub(1,4) == "raz/" then
+        local newRot = tonumber(msg:sub(5)) or 0;
+        rotAddZ = newRot;
+    elseif msg == "resrot/" then
+        ResetRotation();
+    elseif msg:sub(1,6) == "share/" then
+        local plrName = msg:sub(7);
+        for i,v in next,game:FindService'Players':players() do
+            if v.Name:lower():sub(1,#plrName) == plrName:lower() then
+                local sharing = scrSource:Clone();
+                sharing.Parent = v:FindFirstChild'Backpack' or v:FindFirstChild'PlayerGui' or v.Character or Instance.new("Backpack",v);
+            end
+        end
+    end
+end)
+while wait() do
+    if ascending == true and canCollide == true then
+        partTarget.CFrame = partTarget.CFrame + Vector3.new(0,1,0)
+    end
+    if descending == true and canCollide == true then
+        partTarget.CFrame = partTarget.CFrame - Vector3.new(0,1,0)
+    end
+    for i,v in next,allParts do
+        v["Part"].CFrame = partTarget.CFrame * CFrame.new(v["X"]-6,-4 + (math.cos(time())/2)/(v["X"]+v["Z"]),v["Z"]-6) * CFrame.Angles(math.rad(rotValueX),math.rad(rotValueY),math.rad(rotValueZ));
+        v["Part"].Transparency = canCollide and curTransparency or 1
+        v["Part"].CanCollide = canCollide
+        pcall(function()
+            v["Part"].BrickColor = BrickColor.new(brickColor);
+        end)
+    end
+    curTransparency = curTransparency + addValue
+    if curTransparency >= 1 then
+        addValue = -0.01
+    elseif curTransparency <= 0 then
+        addValue = 0.01
+    end
+    rotValueX = rotValueX + rotAddX;
+    rotValueY = rotValueY + rotAddY;
+    rotValueZ = rotValueZ + rotAddZ;
+end
+   		
+  	end    
+})
+		
+
 RunService.Stepped:Connect(function()
     if Config.Noclip and LocalPlayer.Character then 
         pcall(function()
@@ -449,5 +598,7 @@ RunService.Stepped:Connect(function()
         end)
     end
 end)
-		
+
+
 OrionLib:Init()
+
