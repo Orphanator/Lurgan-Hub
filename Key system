@@ -13,7 +13,7 @@ _G.Key = "NINH2"
 _G.KeyInput = "string"
 
 function DHUB()
-    loadstring(game:HttpGet(('https://raw.githubusercontent.com/Orphanator/Lurgan-Hub/main/Key%20system?token=GHSAT0AAAAAACAF2NXI4IMJPGGFU7A22BI4ZA6DOJA')))()
+    loadstring(game:HttpGet(('https://raw.githubusercontent.com/Orphanator/Lurgan-Hub/main/Lurgan?token=GHSAT0AAAAAACAF2NXIECCN3YVE4UYDJC4YZA6DU5Q')))()
 end
 
 function CorrectKey()
