@@ -1,4 +1,4 @@
-local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
+local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/Orphanator/Lurgan-Hub/main/Lurgan?token=GHSAT0AAAAAACAF2NXIT34HAVE5JVPOGRGMZA6DNGQ')))()
 local Player = game.Players.LocalPlayer
 local Window = OrionLib:MakeWindow({Name = "Lurgan Hub", HidePremium = false, IntroEnabled = false, Introtext = "The fog is coming", SaveConfig = true, ConfigFolder = "LurganTest"})
 
