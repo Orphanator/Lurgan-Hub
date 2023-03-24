@@ -1,4 +1,4 @@
-local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/Orphanator/Lurgan-Hub/main/Lurgan?token=GHSAT0AAAAAACAF2NXIT34HAVE5JVPOGRGMZA6DNGQ')))()
+local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
 local Player = game.Players.LocalPlayer
 local Window = OrionLib:MakeWindow({Name = "Lurgan Hub", HidePremium = false, IntroEnabled = false, Introtext = "The fog is coming", SaveConfig = true, ConfigFolder = "LurganTest"})
 
@@ -13,7 +13,7 @@ _G.Key = "NINH2"
 _G.KeyInput = "string"
 
 function DHUB()
-    loadstring(game:HttpGet(('https://raw.githubusercontent.com/Orphanator/Lurgan-Hub/main/Lurgan')))()
+    loadstring(game:HttpGet(('https://raw.githubusercontent.com/Orphanator/Lurgan-Hub/main/Key%20system?token=GHSAT0AAAAAACAF2NXI4IMJPGGFU7A22BI4ZA6DOJA')))()
 end
 
 function CorrectKey()
