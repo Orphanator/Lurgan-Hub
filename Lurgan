@@ -134,7 +134,7 @@ end
 function NoclipNotify()
     OrionLib:MakeNotification({
         Name = "Noclip Toggled",
-        Content = "Keybind E was pressed",
+        Content = "Keybind X was pressed",
         Image = "rbxassetid://4483345998",
         Time = 5
     })
@@ -150,6 +150,18 @@ end
 
 function BloxF()
 loadstring(game:HttpGetAsync("https://gitlab.com/Sky2836/test/-/raw/main/Auth"))()
+end
+
+function PetSim()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Muhammad6196/Project-WD/main/Mainstring.lua"))()
+end
+
+function KAT()
+    loadstring(game:HttpGet('https://raw.githubusercontent.com/zReal-King/King-Hub-v2/main/Loader.lua'))()
+end
+
+function FL()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/mopsfl/rbxmopshub/main/loader.lua"))()
 end
 
 -- Tabs
@@ -240,6 +252,13 @@ GamesTab:AddButton({
 })
 
 GamesTab:AddButton({
+	Name = "FRONTLINES",
+	Callback = function()
+        FL()     		
+  	end    
+})
+
+GamesTab:AddButton({
 	Name = "PLS Donate",
 	Callback = function()
         PLSDonate()     		
@@ -306,6 +325,13 @@ GamesTab:AddButton({
 	Name = "Natural Disasters",
 	Callback = function()
         ND()     		
+  	end    
+})
+
+GamesTab:AddButton({
+	Name = "Pet Simulator X",
+	Callback = function()
+        PetSim()     		
   	end    
 })
 
@@ -379,6 +405,12 @@ GamesTab:AddButton({
   	end    
 })
 
+GamesTab:AddButton({
+	Name = "Knife Ability Test",
+	Callback = function()
+        KAT()     		
+  	end    
+})
 
 UtilityTab:AddLabel("Note: These are used to create scripts.")
 
@@ -462,7 +494,7 @@ getgenv().Config = Config or {
 
 Humanoid:AddBind({
     Name = "Noclip",
-    Default = Enum.KeyCode.E,
+    Default = Enum.KeyCode.X,
     Hold = false,
     Callback = function(state)
         Config.Noclip = not Config.Noclip 
@@ -485,7 +517,7 @@ end))
 Humanoid:AddLabel("Note: Press PlatForm Fly once and press R to toggle.")
 
 Humanoid:AddButton({
-	Name = "Platform Fly",
+	Name = "R6 Platform Fly",
 	Callback = function()
         wait(0.001);
 script.Archivable = true;
@@ -502,7 +534,7 @@ local rotValueX = 0;
 local rotValueY = 0;
 local rotValueZ = 0;
 local rotAddX = 0;
-local rotAddY = 1;
+local rotAddY = 0;
 local rotAddZ = 0;
 local canCollide = true;
 local lastSpaceTick = 0;
@@ -634,5 +666,6 @@ end)
 
 
 OrionLib:Init()
+
 
 
